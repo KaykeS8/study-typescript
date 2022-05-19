@@ -9,11 +9,13 @@ console.log(showData('Teste generics'))
 
 // 2 - constrainnt em generic
 
-const showProductName = <T extends { name: string }>(obj: T) => {
+interface objectTypes { name: string }
+
+const showProductName = <T extends objectTypes>(obj: T) => {
   return `O nome do produto é: ${obj.name}`
 }
 
-console.log(showProductName({ name: 'Dell' }))
+console.log(showProductName({ name: 'Dell', cor:"gray" }))
 
 // 3 - generics com interface
 
@@ -43,3 +45,5 @@ const server = { hd: '10tb', ram: '160GB' }
 
 console.log(getSomeKey(server, 'ram'))
 console.log(getSomeKey(server, 'hd'))
+
+// 5 -
