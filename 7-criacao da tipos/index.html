@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Criação de tipos</title>
+  <script src="index.js"></script>
+
+  <style>
+    *,
+    *::before,
+    *::after {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+    a {
+      text-decoration: none;
+      color: white;
+      margin-right: 6px;
+      font-size: 16px;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    a:last-child {
+      margin-right: 0;
+    }
+
+    a:hover {
+      color: coral;
+      transition: .4s;
+    }
+
+      .header {
+        width: 100%;
+        background-color: gray;
+        padding: 5px 10px;
+      }
+
+      .container {
+        max-width: 900px;
+        margin: 0 auto;
+      }
+
+      .hero_flex {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .nav {
+        margin: 10px;
+      }
+      .logo {
+        margin: 10px;
+      }
+  </style>
+</head>
+<body>
+    <header class="header">
+      <div class="container">
+        <div class="hero_flex">
+          <h1 class="logo">Logo</h1>
+          <nav class="nav">
+            <a href="#">Home</a>
+            <a href="#">Notícias</a>
+            <a href="#">Sobre</a>
+          </nav>
+        </div>
+      </div>
+    </header>
+</body>
+</html>
