@@ -5,11 +5,10 @@ const showData = (arg) => {
 };
 console.log(showData(5));
 console.log(showData('Teste generics'));
-// 2 - constrainnt em generic
 const showProductName = (obj) => {
     return `O nome do produto é: ${obj.name}`;
 };
-console.log(showProductName({ name: 'Dell' }));
+console.log(showProductName({ name: 'Dell', cor: "gray" }));
 const Honda = { name: "Honda civic", color: 'black', engine: 2.0, wheels: 4 };
 const myPen = { name: 'Bic', wheels: false, engine: false, color: "Blue" };
 console.log(Honda);
@@ -21,3 +20,4 @@ function getSomeKey(obj, key) {
 const server = { hd: '10tb', ram: '160GB' };
 console.log(getSomeKey(server, 'ram'));
 console.log(getSomeKey(server, 'hd'));
+// 5 -
