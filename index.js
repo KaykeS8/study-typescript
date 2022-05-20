@@ -94,7 +94,7 @@ Window.prototype.join = function (otherWindow) {
 };
 
 Window.prototype.tabOpen = function (tab) {
-  this.tabs.push("new tab");
+  this.tabs.push(tab);
   return this;
 };
 
