@@ -42,6 +42,5 @@ class Car {
 const fusca = new Car('Fusca 99')
 
 fusca.name = 'Honda civic 2022'
-fusca.wheels = 6
 
 console.log(fusca)
