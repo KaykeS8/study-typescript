@@ -38,7 +38,7 @@ let motionModule = (function () {
 let funModule = (function () {
   return {
     isCuteMixin: function (Obj) {
-      obj.isCute = function () {
+      Obj.isCute = function () {
         return true;
       };
     },
@@ -129,19 +129,3 @@ const finalTabs = socialWindow
   .join(workWindow.tabClose(1).tabOpen());
 console.log(finalTabs.tabs);
 
-[
-  "FB",
-  "Gitter",
-  "Reddit",
-  "Twitter",
-  "Medium",
-  "new tab",
-  "Netflix",
-  "YouTube",
-  "Vine", -
-  "GMail",
-  "Work mail", - 
-  "Docs",
-  "freeCodeCamp",
-  "new tab",
-];
