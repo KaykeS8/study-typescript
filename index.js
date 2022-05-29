@@ -128,3 +128,8 @@ const finalTabs = socialWindow
   .join(videoWindow.tabClose(2))
   .join(workWindow.tabClose(1).tabOpen());
 console.log(finalTabs.tabs);
+
+const teste  = (func) => {
+  const name = func()
+  console.log(``)
+}
