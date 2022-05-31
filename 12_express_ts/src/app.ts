@@ -33,7 +33,35 @@ app.all("/api/product/check", (req, res) => {
 
 // 5 - interface do express
 app.get("/api/interfaces", (req: Request, res: Response) => {
-  return res.send("Utilizando interface")
+  return res.send("Utilizando interface");
+});
+
+// 6 - enviando JSON
+app.get("/api/json", (req: Request, res: Response) => {
+  return res.json({
+    name: "Shirt",
+    price: 30.0,
+    color: "blue",
+  });
+});
+
+// 7 - router parameter
+
+app.get("/api/product/:id", (req: Request, res: Response) => {
+  console.log(req.params);
+
+  const id = req.params.id;
+
+  if (id === "1") {
+    const product = {
+      id: 1,
+      name: "Boné",
+      price: 50,
+    };
+    return res.json(product);
+  } else {
+    return res.send("Produto não comprado");
+  }
 });
 
 app.listen(3000, () => {
