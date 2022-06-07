@@ -58,7 +58,7 @@ const sumTwoNumbers = (numOne, numTwo = 5) => {
     return numOne / numTwo;
 };
 console.log(sumTwoNumbers(200));
-//  8 - tipo unknown
+//  8 - tipo 
 function doSomething(x) {
     if (Array.isArray(x)) {
         console.log(x[0]);

@@ -13,7 +13,6 @@ const soma = (a, b) => {
 soma('23', '34');
 soma(123, 45);
 soma('12', 2);
-//  2 -Chegando se valor existe
 const operation = (arr, operation) => {
     if (operation) {
         if (operation === 'soma') {

@@ -45,7 +45,6 @@ const classDec = (constructor) => {
     }
 };
 let User = class User {
-    name;
     constructor(name) {
         this.name = name;
     }
@@ -62,7 +61,6 @@ function enumerable(value) {
     };
 }
 class Machine {
-    name;
     constructor(name) {
         this.name = name;
     }
@@ -78,8 +76,6 @@ const trator = new Machine("Trator");
 console.log(trator.showName());
 // 5 - acess decorator
 class Monster {
-    name;
-    age;
     constructor(name, age) {
         this.name = name;
         this.age = age;
@@ -116,7 +112,6 @@ function formatNumber() {
     };
 }
 class ID {
-    id;
     constructor(id) {
         this.id = id;
     }
@@ -133,8 +128,6 @@ function createDate(created) {
     created.prototype.createdAt = new Date();
 }
 let Book = class Book {
-    id;
-    createdAt;
     constructor(id) {
         this.id = id;
     }
@@ -143,7 +136,6 @@ Book = __decorate([
     createDate
 ], Book);
 let Pen = class Pen {
-    id;
     constructor(id) {
         this.id = id;
     }
@@ -173,7 +165,9 @@ function checkIfUserPoster() {
     };
 }
 class Post {
-    alreadyPosted = false;
+    constructor() {
+        this.alreadyPosted = false;
+    }
     // @checkIfUserPoster();
     post(content, alreadyPosted) {
         this.alreadyPosted = true;
@@ -204,7 +198,6 @@ function Max(limit) {
     };
 }
 class Admin {
-    username;
     constructor(username) {
         this.username = username;
     }

@@ -1,8 +1,6 @@
 "use strict";
 // 1 - Campos em classe
 class User {
-    name;
-    idade;
 }
 const dados = new User();
 dados.idade = 17;
@@ -10,9 +8,6 @@ dados.name = 'Kayke de souza simão oliveira';
 console.log(dados);
 // 2 - contructor
 class UseInformation {
-    name;
-    age;
-    weight;
     constructor(name, age, weight) {
         this.name = name;
         this.age = age;
@@ -23,9 +18,8 @@ const firstUser = new UseInformation('kayke', 17, 69);
 console.log(firstUser);
 // 3 - campos readonly
 class Car {
-    name;
-    wheels = 4;
     constructor(name) {
+        this.wheels = 4;
         this.name = name;
     }
 }
@@ -34,14 +28,12 @@ fusca.name = 'Honda civic 2022';
 console.log(fusca);
 //4 - Herença e super
 class Machine {
-    name;
     constructor(name) {
         this.name = name;
     }
 }
 const truck = new Machine('Truck');
 class KillerMachine extends Machine {
-    guns;
     constructor(name, guns) {
         super(name);
         this.guns = guns;
@@ -52,7 +44,6 @@ console.log(bigTruck);
 console.log(truck);
 // 5 - Métodos
 class Dwarf {
-    name;
     constructor(name) {
         this.name = name;
     }
@@ -65,8 +56,6 @@ console.log(jimmy.name);
 jimmy.greeting();
 // 6 - This
 class Truck {
-    model;
-    hp;
     constructor(model, hp) {
         this.model = model;
         this.hp = hp;
@@ -81,8 +70,6 @@ const newTruckRed = new Truck('Chevrolet Red', 345);
 newTruckRed.showDetailsByTruck();
 // 7 - getters
 class Person {
-    name;
-    surname;
     constructor(name, surname) {
         this.name = name;
         this.surname = surname;
@@ -95,8 +82,6 @@ const kayke = new Person('kayke', 'simão');
 console.log(kayke.fullName);
 // 8 - setters
 class Coords {
-    X;
-    Y;
     set FillX(X) {
         if (X === 0) {
             return;
@@ -123,7 +108,6 @@ myCoords.FillY = 234;
 myCoords.FillX = 32;
 console.log(myCoords.getCoords);
 class blogPost {
-    title;
     constructor(title) {
         this.title = title;
     }
@@ -134,7 +118,6 @@ class blogPost {
 const myOldBlog = new blogPost('difficulty in your carrer');
 console.log(myOldBlog);
 class AlotOfBlogs extends blogPost {
-    contents;
     constructor(title, contents) {
         super(title);
         this.contents = contents;
@@ -164,7 +147,9 @@ myObject.someMethod();
 // 11 - visibilidade (visibile)
 // 11 - Visibilidade - public
 class C {
-    X = 10;
+    constructor() {
+        this.X = 10;
+    }
 }
 class D extends C {
 }
@@ -174,7 +159,9 @@ console.log(Cinstance.X);
 console.log(Dinstance.X);
 // 12 - visibilidade - protected
 class E {
-    X = 123;
+    constructor() {
+        this.X = 123;
+    }
     protectedMethod() {
         console.log('Esse método é protegido');
     }
@@ -188,7 +175,9 @@ testProtected.showX();
 testProtected.showProtectedMethod();
 // 13 visibilidade - private
 class PrivateClass {
-    name = 'Andrew carnigie';
+    constructor() {
+        this.name = 'Andrew carnigie';
+    }
     showTheName() {
         return `the name is ${this.name}`;
     }
@@ -197,17 +186,15 @@ const pObj = new PrivateClass();
 console.log(pObj);
 //14 - static members
 class staticMembers {
-    static prop = 'Teste de static';
     static statiMehtod() {
         console.log("This is method static");
     }
 }
+staticMembers.prop = 'Teste de static';
 console.log(staticMembers.prop);
 staticMembers.statiMehtod();
 // 15 - Genric class
 class Item {
-    first;
-    second;
     constructor(first, second) {
         this.first = first;
         this.second = second;
@@ -225,9 +212,6 @@ console.log(listOfItemns.typeOfFirst);
 console.log(listOfItemns.typeOfSecond);
 // 16 - parameter properties
 class ParamaterProperties {
-    name;
-    qty;
-    price;
     constructor(name, qty, price) {
         this.name = name;
         this.qty = qty;
@@ -250,7 +234,6 @@ console.log(newShirt.showPrice());
 console.log(newShirt.showQty());
 // 17 - class expressions
 const myClass = class {
-    name;
     constructor(name) {
         this.name = name;
     }
@@ -261,7 +244,6 @@ console.log(person);
 class AbstractClass {
 }
 class AbstractExample extends AbstractClass {
-    name;
     constructor(name) {
         super();
         this.name = name;
@@ -274,9 +256,7 @@ const newAbstractObject = new AbstractExample("Kayke simao");
 newAbstractObject.showName();
 // 19 - Realações entre classes
 class Dog {
-    name;
 }
 class Cat {
-    name;
 }
 const doguinho = new Cat();

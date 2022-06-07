@@ -64,7 +64,7 @@ const advancedGreeting = (firstName, lastName) => {
     if (firstName && lastName === undefined) {
         return console.log(firstName);
     }
-    else if (firstName && lastName) {
+    else if (lastName !== undefined) {
         return console.log(`${firstName} ${lastName}`);
     }
 };
@@ -96,9 +96,9 @@ const showCoordenadas = (obj) => {
     console.log(`${obj.X} ${obj.y} ${obj.z}`);
 };
 const objCoord = {
-    X: 245,
-    y: 78,
-    z: 430
+    X: 123,
+    y: 12343,
+    z: 325
 };
 showCoordenadas(objCoord);
 const DatePerson = {
@@ -119,9 +119,13 @@ const direcoes = (direction) => {
     return `A direção escolhidad foi ${direction}`;
 };
 console.log(direcoes("right"));
+const object = {
+    name: 'Kayke de souza simao oliveira',
+    profession: "Front-end"
+};
 // 16 - nan null assertion operators ?
 const paragrafo = document.getElementById('#paragraph');
-console.log(paragrafo?.innerHTML);
+console.log(paragrafo === null || paragrafo === void 0 ? void 0 : paragrafo.innerHTML);
 // 17 - bigint
 let n;
 n = 10n;
