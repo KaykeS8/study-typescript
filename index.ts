@@ -8,13 +8,15 @@ Animal.prototype = {
   },
 };
 
-function Bird(name) {
-  this.name = name;
+class Bird {
+  name;
+  constructor(name: string) {
+    this.name = name;
+  }
 }
 
-Bird.prototype = Object.create(Animal.prototype);
-
 console.log(Bird.prototype);
+console.log("hello");
 
 let duck = new Bird("Pato");
 
@@ -22,12 +24,18 @@ let duck = new Bird("Pato");
   console.log("THis is a function");
 })();
 
+interface IObj {
+  fly: () => void;
+  isCute: () => boolean;
+  sing: () => void;
+}
+
 let motionModule = (function () {
   return {
     glideMixin: function () {
       console.log("Gliding on the water");
     },
-    flyMixin: function (obj) {
+    flyMixin: function (obj: IObj) {
       obj.fly = function () {
         console.log("Flying, wooosh!");
       };
@@ -37,12 +45,12 @@ let motionModule = (function () {
 
 let funModule = (function () {
   return {
-    isCuteMixin: function (Obj) {
+    isCuteMixin: function (Obj: IObj) {
       Obj.isCute = function () {
         return true;
       };
     },
-    singMixin: function (obj) {
+    singMixin: function (obj: IObj) {
       obj.sing = function () {
         console.log("Singing to an awesome tune");
       };
@@ -53,23 +61,27 @@ let funModule = (function () {
 // Saiba mais sobre programação funcional
 
 // desafio 1
-const prepareTea = () => "greeTea";
+const prepareTea = (): string => "greeTea";
 
-const getTeaOne = (numOfTea) => {
-  let cupsTeas = [];
+const getTeaOne = (numOfTea: number) => {
+  let cupsTeas: Array<string> = [];
   for (let cup = 1; cup <= numOfTea; cup++) {
     const cupTea = prepareTea();
-    cupsTeas.push(cupsTeas);
+    cupsTeas.push(cupTea);
   }
   return cupsTeas;
 };
 
-// desafio 2
-const prepareGreenTea = () => "greenTea";
-const prepareBlackTea = () => "blackTea";
+console.log(getTeaOne(2));
 
-const getTea = (prepareTea, numOfTea) => {
-  let teaCups = [];
+// desafio 2
+const prepareGreenTea = (): string => "greenTea";
+const prepareBlackTea = (): string => "blackTea";
+
+type functionTea = () => string;
+
+const getTea = (prepareTea: functionTea, numOfTea: number) => {
+  let teaCups: string[] = [];
   for (let cups = 1; cups <= numOfTea; cups++) {
     const teaCup = prepareTea();
     teaCups.push(teaCup);
@@ -84,81 +96,33 @@ console.log(tea4GreenTeamFCC);
 
 // desafio 3
 
-const Window = function (tabs) {
-  this.tabs = tabs;
-};
-
-Window.prototype.join = function (otherWindow) {
-  this.tabs = this.tabs.concat(otherWindow.tabs);
-  return this;
-};
-
-Window.prototype.tabOpen = function (tab) {
-  this.tabs.push(tab);
-  return this;
-};
-
-Window.prototype.tabClose = function (index) {
-  const tabsBeforeIndex = this.tabs.splice(0, index);
-  const tabsAfterIndex = this.tabs.splice(index + 1);
-
-  this.tabs = tabsBeforeIndex.concat(tabsAfterIndex);
-
-  return this;
-};
-
-const workWindow = new Window([
-  "GMail",
-  "Inbox",
-  "Work mail",
-  "Docs",
-  "freeCodeCamp",
-]);
-const socialWindow = new Window([
-  "FB",
-  "Gitter",
-  "Reddit",
-  "Twitter",
-  "Medium",
-]);
-const videoWindow = new Window(["Netflix", "YouTube", "Vimeo", "Vine"]);
-
-const finalTabs = socialWindow
-  .tabOpen()
-  .join(videoWindow.tabClose(2))
-  .join(workWindow.tabClose(1).tabOpen());
-console.log(finalTabs.tabs);
-
-const teste = (func) => {
+const teeste = (func: () => string): string => {
   const name = func();
   console.log(name);
+  return name;
 };
 
-const bookList = [
+const bookList: string[] = [
   "The Hound of the Baskervilles",
   "On The Electrodynamics of Moving Bodies",
   "Philosophiæ Naturalis Principia Mathematica",
   "Disquisitiones Arithmeticae",
 ];
 
-function add(list, bookName) {
+function add(list: string[], bookName: string) {
   return [...list, bookName];
 }
 
-function remove(list, bookName) {
+function remove(list: string[], bookName: string) {
   return list.filter((book) => book !== bookName);
 }
 
-var newBookList = add(bookList, "A Brief History of Time");
+var newBookList = add(bookList, "Quem pensa enriquece");
 var newerBookList = remove(bookList, "On The Electrodynamics of Moving Bodies");
 var newestBookList = remove(
   add(bookList, "A Brief History of Time"),
   "On The Electrodynamics of Moving Bodies"
 );
-
-console.log(newBookList);
-console.log(newerBookList);
-console.log(newestBookList);
 
 // Dell OptiPlex 3020
 
@@ -168,10 +132,12 @@ console.log(nomes);
 
 // Only change code below this line
 
-const s = [23, 65, 98, 5];
+const s: number[] = [23, 65, 98, 5];
 
-Array.prototype.myMap = function (callback) {
-  const newArray = [];
+type callbackMap = <T>(item: T) => T;
+
+Array.prototype.myMap = function <T>(callback: callbackMap): T[] {
+  const newArray: Array<T> = [];
   this.forEach((item) => {
     const valores = callback(item);
     newArray.push(valores);
@@ -179,17 +145,18 @@ Array.prototype.myMap = function (callback) {
   return newArray;
 };
 
-const new_s = s.myMap((item) => {
+const new_s = s.myMap((item: any) => {
   return item * 2;
 });
-
 console.log(new_s);
 
-const users = [
-  { name: "Lucas", idade: 16 },
-  { name: "joão", idade: 15 },
-  { name: "Kalita", idade: 15 },
-];
+const maybeArray = Math.random() > 0.5 ? [2, 4, 6] : { nome: "Kayke simao" };
+if (Array.isArray(maybeArray)) {
+  const values = maybeArray.map((item) => item * 2);
+  console.log(values);
+} else {
+  console.log(`Nome: ${maybeArray.nome}`);
+}
 
 // The global variable
 const watchList = [
@@ -372,7 +339,6 @@ const n = {
 };
 
 n.cal();
-
 
 function getRating(watchList) {
   let averageRating =
