@@ -7,11 +7,13 @@ Animal.prototype = {
         console.log("nom nom nom");
     },
 };
-function Bird(name) {
-    this.name = name;
+class Bird {
+    constructor(name) {
+        this.name = name;
+    }
 }
-Bird.prototype = Object.create(Animal.prototype);
 console.log(Bird.prototype);
+console.log("hello");
 let duck = new Bird("Pato");
 (function () {
     console.log("THis is a function");
@@ -49,10 +51,11 @@ const getTeaOne = (numOfTea) => {
     let cupsTeas = [];
     for (let cup = 1; cup <= numOfTea; cup++) {
         const cupTea = prepareTea();
-        cupsTeas.push(cupsTeas);
+        cupsTeas.push(cupTea);
     }
     return cupsTeas;
 };
+console.log(getTeaOne(2));
 // desafio 2
 const prepareGreenTea = () => "greenTea";
 const prepareBlackTea = () => "blackTea";
@@ -68,46 +71,10 @@ const tea4GreenTeamFCC = getTea(prepareGreenTea, 27);
 const tea4BlackTeamFCC = getTea(prepareBlackTea, 13);
 console.log(tea4GreenTeamFCC);
 // desafio 3
-const Window = function (tabs) {
-    this.tabs = tabs;
-};
-Window.prototype.join = function (otherWindow) {
-    this.tabs = this.tabs.concat(otherWindow.tabs);
-    return this;
-};
-Window.prototype.tabOpen = function (tab) {
-    this.tabs.push(tab);
-    return this;
-};
-Window.prototype.tabClose = function (index) {
-    const tabsBeforeIndex = this.tabs.splice(0, index);
-    const tabsAfterIndex = this.tabs.splice(index + 1);
-    this.tabs = tabsBeforeIndex.concat(tabsAfterIndex);
-    return this;
-};
-const workWindow = new Window([
-    "GMail",
-    "Inbox",
-    "Work mail",
-    "Docs",
-    "freeCodeCamp",
-]);
-const socialWindow = new Window([
-    "FB",
-    "Gitter",
-    "Reddit",
-    "Twitter",
-    "Medium",
-]);
-const videoWindow = new Window(["Netflix", "YouTube", "Vimeo", "Vine"]);
-const finalTabs = socialWindow
-    .tabOpen()
-    .join(videoWindow.tabClose(2))
-    .join(workWindow.tabClose(1).tabOpen());
-console.log(finalTabs.tabs);
-const teste = (func) => {
+const teeste = (func) => {
     const name = func();
     console.log(name);
+    return name;
 };
 const bookList = [
     "The Hound of the Baskervilles",
@@ -121,12 +88,9 @@ function add(list, bookName) {
 function remove(list, bookName) {
     return list.filter((book) => book !== bookName);
 }
-var newBookList = add(bookList, "A Brief History of Time");
+var newBookList = add(bookList, "Quem pensa enriquece");
 var newerBookList = remove(bookList, "On The Electrodynamics of Moving Bodies");
 var newestBookList = remove(add(bookList, "A Brief History of Time"), "On The Electrodynamics of Moving Bodies");
-console.log(newBookList);
-console.log(newerBookList);
-console.log(newestBookList);
 // Dell OptiPlex 3020
 const nomes = ["kayke", "anna", "joao0", "maria", "pelé"];
 console.log(nomes);
@@ -144,11 +108,14 @@ const new_s = s.myMap((item) => {
     return item * 2;
 });
 console.log(new_s);
-const users = [
-    { name: "Lucas", idade: 16 },
-    { name: "joão", idade: 15 },
-    { name: "Kalita", idade: 15 },
-];
+const maybeArray = Math.random() > 0.5 ? [2, 4, 6] : { nome: "Kayke simao" };
+if (Array.isArray(maybeArray)) {
+    const values = maybeArray.map((item) => item * 2);
+    console.log(values);
+}
+else {
+    console.log(`Nome: ${maybeArray.nome}`);
+}
 // The global variable
 const watchList = [
     {
