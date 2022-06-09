@@ -150,14 +150,6 @@ const new_s = s.myMap((item: any) => {
 });
 console.log(new_s);
 
-const maybeArray = Math.random() > 0.5 ? [2, 4, 6] : { nome: "Kayke simao" };
-if (Array.isArray(maybeArray)) {
-  const values = maybeArray.map((item) => item * 2);
-  console.log(values);
-} else {
-  console.log(`Nome: ${maybeArray.nome}`);
-}
-
 // The global variable
 const watchList = [
   {
@@ -281,10 +273,8 @@ const watchList = [
 
 // Only change code below this line
 
-let filteredList = "";
-
-filteredList = watchList.filter((item) => {
-  return item.imdbRating > 8;
+let filteredList = watchList.filter((item) => {
+  return Number(item.imdbRating) > 8;
 });
 const newMovie = filteredList.map((item) => {
   return {
@@ -312,8 +302,10 @@ console.log(things);
 
 const rrai = [23, 65, 98, 5];
 
-Array.prototype.myFilter = function (callback) {
-  const newArray = [];
+type callbackFilter = <S>(item: S) => S;
+
+Array.prototype.myFilter = function <S>(callback: callbackFilter): S[] {
+  const newArray: S[] = [];
   this.forEach((item) => {
     if (callback(item) == true) {
       newArray.push(item);
@@ -322,13 +314,13 @@ Array.prototype.myFilter = function (callback) {
   return newArray;
 };
 
-const new_rrai = rrai.myFilter((item) => {
+const new_rrai = rrai.myFilter((item: any) => {
   return item % 2 === 1;
 });
 
 console.log(new_rrai);
 
-const n = {
+const ns = {
   cal(name?: string) {
     const oi = {
       nome: name,
@@ -338,9 +330,16 @@ const n = {
   },
 };
 
-n.cal();
+ns.cal();
 
-function getRating(watchList) {
+type WatchListType = [
+  {
+    Director: string;
+    imdbRating: string;
+  }
+];
+
+function getRating(watchList: WatchListType) {
   let averageRating =
     watchList
       .filter((film) => film.Director === "Christopher Nolan")
