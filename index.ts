@@ -352,3 +352,5 @@ function getRating(watchList: WatchListType) {
   return averageRating;
 }
 console.log(getRating(watchList));
+
+
