@@ -35,11 +35,14 @@ const teste: string = "teste";
 let dados = "epa";
 
 // desafio - 1
-const somar = (num: number, num2: number) => {
-  console.log(num + num2);
+const somar = (num: number, num2?: number) => {
+  if (num2) {
+    return num + num2;
+  }
+  return num;
 };
 
-somar(2, 3);
+somar(2, 6);
 
 // Desafio - 2
 
