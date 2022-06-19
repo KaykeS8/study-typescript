@@ -1,179 +1,198 @@
 // 1 -Array
 
-const numeros: number[] = [10, 20, 34]
-console.log(numeros)
+const numeros: number[] = [10, 20, 34];
+console.log(numeros);
 const numberTotal: number = numeros.reduce((acc: number, item: number) => {
-    return acc + item
-}, 0)
-console.log(numberTotal)
+  return acc + item;
+}, 0);
+console.log(numberTotal);
 
+const frases: string[] = [
+  "Desenvolvedor Front-end",
+  "Desenvolvedor back-end",
+  "Desenvolvedor full-stack",
+];
+frases.push("Dev ops");
+console.log(frases);
 
-const frases: string[] = ['Desenvolvedor Front-end', 'Desenvolvedor back-end', 'Desenvolvedor full-stack']
-frases.push('Dev ops')
-console.log(frases)
 // frases.forEach(item => console.log(`Você trabalha como ${item}`));
 
 // 2 - Outra sintexe de Array
-const salarios: Array<number> = [3000, 7800, 14500, 6043, 3453, 867, 345]
-salarios.unshift(2000)
-console.log(salarios)
-const salaryLarger: Array<number> = salarios.filter(sal => sal > 2000)
-console.log(salaryLarger)
+const salarios: Array<number> = [3000, 7800, 14500, 6043, 3453, 867, 345];
+salarios.unshift(2000);
+console.log(salarios);
 
+const salaryLarger: Array<number> = salarios.filter((sal) => sal > 2000);
+console.log(salaryLarger);
 
-const produtos: Array<string> = ['Banana', 'Maça', 'Pera', 'Uva', 'Kiwi']
-produtos.push('Acerola')
-console.log(produtos)
-const produtcts: Array<string> = produtos.slice(0, 3)
-console.log(produtcts)
+const produtos: Array<string> = ["Banana", "Maça", "Pera", "Uva", "Kiwi"];
+produtos.push("Acerola");
+console.log(produtos);
+const produtcts: Array<string> = produtos.slice(0, 3);
+console.log(produtcts);
 
 // 3 - any
 
-const arr1: any = ['Vagas aberta', 'A falência', 122, 'Revolução do bichos', 'Mais esperto que o diabo', true, {
-    nome: 'Julia',
-    idade: 19
-}]
+const arr1: any = [
+  "Vagas aberta",
+  "A falência",
+  122,
+  "Revolução do bichos",
+  "Mais esperto que o diabo",
+  true,
+  {
+    nome: "Julia",
+    idade: 19,
+  },
+];
 
-
-arr1.push([234, '', 345])
-console.log(arr1[6].nome)
+arr1.push([234, "", 345]);
+console.log(arr1[6].nome);
 
 //4 - tipo de paramentro
 
 function soma(num: number, num2: number) {
-    console.log((num + num2) / 2)
+  console.log((num + num2) / 2);
 }
 
-soma(9, 9)
+soma(9, 9);
+[];
 
 //5 - retorno de função
 
-function greeting(name: string, idade: number, profession: string, trabalhando: boolean): string {
-    return `${name} / ${idade} / ${profession} / ${trabalhando}`
+function greeting(
+  name: string,
+  idade: number,
+  profession: string,
+  trabalhando: boolean
+): string {
+  return `${name} / ${idade} / ${profession} / ${trabalhando}`;
 }
 
-console.log(greeting('kayke', 17, 'desenolvedor web', false))
-
+console.log(greeting("kayke", 17, "desenolvedor web", false));
 
 // 6 - funções anonimas
 
 // 7 - Tipos de objetos
 
-function coordenadas(coord: { x: number, y: number }): boolean {
-    console.log(`Coordenada X é ${coord.x}`)
-    console.log(`Coordenada Y é ${coord.y}`)
-    return true
+function coordenadas(coord: { x: number; y: number }): boolean {
+  console.log(`Coordenada X é ${coord.x}`);
+  console.log(`Coordenada Y é ${coord.y}`);
+  return true;
 }
 
-const caminho = { x: 123, y: 67 }
-console.log(coordenadas(caminho))
+const caminho = { x: 123, y: 67 };
+console.log(coordenadas(caminho));
 
 //  8 - Propriedades opcionais
 
 const showNumbers = (a: number, b: number, c?: number) => {
-    console.log('A: ' + a)
-    console.log('B: ' + b)
-    if (c) {
-        console.log('C: ' + c)
-    }
-}
+  console.log("A: " + a);
+  console.log("B: " + b);
+  if (c) {
+    console.log("C: " + c);
+  }
+};
 
-showNumbers(2, 4)
-console.log('---------')
-showNumbers(3, 5, 7)
+showNumbers(2, 4);
+console.log("---------");
+showNumbers(3, 5, 7);
 
 // 9 - Validaçãp de props opcionais
 // Valdar a propriedade com !== de undefined
 
 const advancedGreeting = (firstName: string, lastName?: string) => {
-    if (firstName && lastName === undefined) {
-        return console.log(firstName)
-    } else if (lastName !== undefined) {
-        return console.log(`${firstName} ${lastName}`)
-    }
-}
-advancedGreeting('kayke')
-advancedGreeting('kayke', 'de souza simão oliveira')
+  if (firstName && lastName === undefined) {
+    return console.log(firstName);
+  } else if (lastName !== undefined) {
+    return console.log(`${firstName} ${lastName}`);
+  }
+};
+advancedGreeting("kayke");
+advancedGreeting("kayke", "de souza simão oliveira");
 
 // 10 - Union types
 
 const showBalance = (balance: string | number) => {
-    return `O saldo da conta é ${balance}`
-}
+  return `O saldo da conta é ${balance}`;
+};
 
-console.log(showBalance(24))
-console.log(showBalance('Negativo'))
+console.log(showBalance(24));
+console.log(showBalance("Negativo"));
 
-const novaArray: (string | number | boolean | { nome: string })[] = ['nome', 34, false, { nome: 'kayke' }]
+const novaArray: (string | number | boolean | { nome: string })[] = [
+  "nome",
+  34,
+  false,
+  { nome: "kayke" },
+];
 
-console.log(novaArray)
+console.log(novaArray);
 
 // 11 - Avançando com Union types
 
 const showUserRole = (role: boolean | string) => {
-    if (typeof role === 'boolean') {
-        return 'Usuario não aprovado!'
-    }
-    return `A função do usuario é ${role}`
-}
+  if (typeof role === "boolean") {
+    return "Usuario não aprovado!";
+  }
+  return `A função do usuario é ${role}`;
+};
 
-console.log(showUserRole('Editor'))
-console.log(showUserRole(false))
+console.log(showUserRole("Editor"));
+console.log(showUserRole(false));
 
 // 12 - type alias
 
-type ID = number | string
+type ID = number | string;
 
 const showId = (id: ID) => {
-    console.log(`ID: ${id}`)
-}
+  console.log(`ID: ${id}`);
+};
 
-showId(23)
-showId('nove')
+showId(23);
+showId("nove");
 
 // 13 - interfaces
 
 interface IPoint {
-    X: number;
-    y: number;
-    z: number;
+  X: number;
+  y: number;
+  z: number;
 }
-
 
 const showCoordenadas = (obj: IPoint) => {
-    console.log(`${obj.X} ${obj.y} ${obj.z}`)
-}
-
+  console.log(`${obj.X} ${obj.y} ${obj.z}`);
+};
 
 const objCoord: IPoint = {
-    X: 123,
-    y: 12343,
-    z: 325
-}
+  X: 123,
+  y: 12343,
+  z: 325,
+};
 
-showCoordenadas(objCoord)
+showCoordenadas(objCoord);
 
 // 14 - interface X type alias
 
 interface IPerson {
-    nome: string
+  nome: string;
 }
 
 // Adicionei mais duas propriedades na interface
 interface IPerson {
-    age: number
-    profession: string
+  age: number;
+  profession: string;
 }
 
 const DatePerson: IPerson = {
-    nome: 'kayke de souza simao oliveira',
-    age: 17,
-    profession: 'Desenvolvedor front-end'
-}
+  nome: "kayke de souza simao oliveira",
+  age: 17,
+  profession: "Desenvolvedor front-end",
+};
 
 type PersonType = {
-    nome: string
-}
+  nome: string;
+};
 // Com o type não e possivel adicionar outro valor
 // O codígo abaixa retorna um erro
 
@@ -183,46 +202,44 @@ type PersonType = {
 
 // 15 - Literal types
 
-let test: 'testando'
-test = "testando"
-console.log(test)
+let test: "testando";
+test = "testando";
+console.log(test);
 
-const direcoes = (direction: 'right' | 'left' | 'top' | 'Bottom'): string => {
-    return `A direção escolhidad foi ${direction}`
+const direcoes = (direction: "right" | "left" | "top" | "Bottom"): string => {
+  return `A direção escolhidad foi ${direction}`;
+};
 
-}
-
-console.log(direcoes("right"))
+console.log(direcoes("right"));
 
 interface DatePro {
-    name: string
-    profession: 'Front-end' | 'Back-end' | 'UX design'
+  name: string;
+  profession: "Front-end" | "Back-end" | "UX design";
 }
 
-
-const object:DatePro = {
-    name: 'Kayke de souza simao oliveira',
-    profession: "Front-end"
-}
+const object: DatePro = {
+  name: "Kayke de souza simao oliveira",
+  profession: "Front-end",
+};
 
 // 16 - nan null assertion operators ?
 
-const paragrafo = document.getElementById('#paragraph')
-console.log(paragrafo?.innerHTML)
+const paragrafo = document.getElementById("#paragraph");
+console.log(paragrafo?.innerHTML);
 
 // 17 - bigint
 
-let n: bigint
+let n: bigint;
 
-n = 10n
+n = 10n;
 
-console.log(typeof n)
+console.log(typeof n);
 
 //  18 - Symbol
 
-let SymbolA: symbol = Symbol('a')
-let symbolB = Symbol('a')
+let SymbolA: symbol = Symbol("a");
+let symbolB = Symbol("a");
 
+console.log(SymbolA == symbolB);
+console.log(SymbolA === symbolB);
 
-console.log(SymbolA == symbolB)
-console.log(SymbolA === symbolB)
