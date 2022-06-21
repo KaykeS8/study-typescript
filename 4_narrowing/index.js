@@ -1,34 +1,34 @@
 "use strict";
 const soma = (a, b) => {
-    if (typeof a === 'string' && typeof b === 'string') {
+    if (typeof a === "string" && typeof b === "string") {
         console.log(parseFloat(a) + parseFloat(b));
     }
-    else if (typeof a === 'number' && typeof b === 'number') {
+    else if (typeof a === "number" && typeof b === "number") {
         console.log(a + b);
     }
     else {
-        console.log('Impossivel realizar a soma');
+        console.log("Impossivel realizar a soma");
     }
 };
-soma('23', '34');
+soma("23", "34");
 soma(123, 45);
-soma('12', 2);
+soma("12", 2);
 const operation = (arr, operation) => {
     if (operation) {
-        if (operation === 'soma') {
+        if (operation === "soma") {
             const sumAll = arr.reduce((acc, item) => {
                 return acc + item;
             }, 0);
             console.log(sumAll);
         }
-        else if (operation === 'dividir') {
+        else if (operation === "dividir") {
             const valueDividio = arr.reduce((acc, item) => {
                 const soma = acc / item;
                 return soma;
             });
             console.log(valueDividio);
         }
-        else if (operation === 'multiply') {
+        else if (operation === "multiply") {
             const multiplyNum = arr.reduce((acc, item) => acc * item);
             console.log(multiplyNum);
         }
@@ -37,7 +37,7 @@ const operation = (arr, operation) => {
         console.log("Please, write a operation 1- soma, 2-dividir, 3 - multiply");
     }
 };
-operation([12, 12], 'soma');
+operation([12, 12], "soma");
 //  3 - instaceof
 class User {
     constructor(name) {
@@ -49,8 +49,8 @@ class SuperUser extends User {
         super(name);
     }
 }
-const jhon = new User('Jhon');
-const paul = new SuperUser('Paul');
+const jhon = new User("Jhon");
+const paul = new SuperUser("Paul");
 console.log(jhon);
 console.log(paul);
 const userGreeting = (users) => {
@@ -72,10 +72,10 @@ class Dog {
         }
     }
 }
-const turca = new Dog('Preta');
-const nina = new Dog('Nina', 'lhasa apso');
+const turca = new Dog("Preta");
+const nina = new Dog("Nina", "lhasa apso");
 const showDogsDetails = (dog) => {
-    if ('brend' in dog) {
+    if ("brend" in dog) {
         console.log(`${dog.name} é da raça ${dog.brend}`);
     }
     else {
@@ -97,3 +97,10 @@ showReviewUser(1);
 showReviewUser(2);
 showReviewUser(3);
 showReviewUser(4);
+const funtion = (name, callback) => {
+    const value = callback();
+    console.log(`O drive atualizado foi ${value}`);
+};
+funtion("NET", () => {
+    return "200";
+});

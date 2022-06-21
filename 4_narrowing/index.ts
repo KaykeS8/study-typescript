@@ -121,3 +121,12 @@ showReviewUser(1);
 showReviewUser(2);
 showReviewUser(3);
 showReviewUser(4);
+
+const funtion = (name: string, callback: () => string) => {
+  const value = callback();
+  console.log(`O drive atualizado foi ${value}`);
+};
+
+funtion("NET", () => {
+  return "200";
+});

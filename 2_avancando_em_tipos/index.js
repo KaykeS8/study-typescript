@@ -143,7 +143,7 @@ const object = {
 };
 // 16 - nan null assertion operators ?
 const paragrafo = document.getElementById("#paragraph");
-console.log(paragrafo?.innerHTML);
+console.log(paragrafo === null || paragrafo === void 0 ? void 0 : paragrafo.innerHTML);
 // 17 - bigint
 let n;
 n = 10n;

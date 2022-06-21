@@ -108,14 +108,6 @@ const new_s = s.myMap((item) => {
     return item * 2;
 });
 console.log(new_s);
-const maybeArray = Math.random() > 0.5 ? [2, 4, 6] : { nome: "Kayke simao" };
-if (Array.isArray(maybeArray)) {
-    const values = maybeArray.map((item) => item * 2);
-    console.log(values);
-}
-else {
-    console.log(`Nome: ${maybeArray.nome}`);
-}
 // The global variable
 const watchList = [
     {
@@ -230,9 +222,8 @@ const watchList = [
     },
 ];
 // Only change code below this line
-let filteredList = "";
-filteredList = watchList.filter((item) => {
-    return item.imdbRating > 8;
+let filteredList = watchList.filter((item) => {
+    return Number(item.imdbRating) > 8;
 });
 const newMovie = filteredList.map((item) => {
     return {
@@ -267,7 +258,7 @@ const new_rrai = rrai.myFilter((item) => {
     return item % 2 === 1;
 });
 console.log(new_rrai);
-const n = {
+const ns = {
     cal(name) {
         const oi = {
             nome: name,
@@ -276,7 +267,7 @@ const n = {
         console.table(oi);
     },
 };
-n.cal();
+ns.cal();
 function getRating(watchList) {
     let averageRating = watchList
         .filter((film) => film.Director === "Christopher Nolan")
@@ -287,4 +278,3 @@ function getRating(watchList) {
         watchList.filter((film) => film.Director === "Christopher Nolan").length;
     return averageRating;
 }
-console.log(getRating(watchList));
